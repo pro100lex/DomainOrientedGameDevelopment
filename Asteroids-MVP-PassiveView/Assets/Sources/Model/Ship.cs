@@ -12,6 +12,8 @@ namespace Asteroids.Model
         private readonly float _secondsToStop = 1f;
         private readonly float _degreesPerSecond = 180;
 
+        public int shipHealth = 3;
+
         public Vector2 Acceleration { get; private set; }
 
         public void Accelerate(float deltaTime)

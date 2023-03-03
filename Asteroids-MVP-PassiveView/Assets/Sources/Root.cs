@@ -1,4 +1,5 @@
 using Asteroids.Model;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -23,14 +24,14 @@ public class Root : MonoBehaviour
     {
         if (_shipModel.shipHealth == 1)
         {
+            _shipModel.shipHealth -= 1;
             _shipInputRouter.OnDisable();
+            _endGameWindow.gameObject.SetActive(true);
         }
         else
         {
             _shipModel.shipHealth -= 1;
         }
-
-        Debug.Log("hit");
     }
 
     private void Awake()

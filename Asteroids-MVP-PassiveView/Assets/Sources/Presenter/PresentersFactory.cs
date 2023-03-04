@@ -10,6 +10,7 @@ public class PresentersFactory : MonoBehaviour
     [SerializeField] private Presenter _asteroidTemplate;
     [SerializeField] private Presenter _asteroidPartTemplate;
     [SerializeField] private Presenter _nloTemplate;
+    [SerializeField] private Presenter _guardianTemplate;
 
     public void CreateBullet(Bullet bullet)
     {
@@ -28,6 +29,11 @@ public class PresentersFactory : MonoBehaviour
     public void CreateNlo(Nlo nlo)
     {
         CreatePresenter(_nloTemplate, nlo);
+    }
+    
+    public void CreateGuardian(Guardian guardian)
+    {
+        CreatePresenter(_guardianTemplate, guardian);
     }
 
     public void CreateAsteroid(Asteroid asteroid)

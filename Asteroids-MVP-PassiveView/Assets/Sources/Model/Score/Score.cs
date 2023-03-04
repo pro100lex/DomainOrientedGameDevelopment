@@ -24,6 +24,11 @@
             {
                 AccumulatedScore += 20;
             }
+            
+            public void Visit(Guardian guardian)
+            {
+                AccumulatedScore += 20;
+            }
 
             public void Visit(PartOfAsteroid nlo)
             {

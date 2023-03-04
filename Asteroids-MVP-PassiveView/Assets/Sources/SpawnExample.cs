@@ -8,6 +8,9 @@ public class SpawnExample : MonoBehaviour
 
     private int _index;
     private float _secondsPerIndex = 1f;
+    
+    private Guardian _guardianModel;
+    private Nlo _nloModel;
 
     private void Update()
     {
@@ -24,9 +27,13 @@ public class SpawnExample : MonoBehaviour
     {
         float chance = Random.Range(0, 100);
 
-        if (chance < 20)
+        if (chance < 30)
         {
-            _factory.CreateNlo(new Nlo(_init.Ship, GetRandomPositionOutsideScreen(), Config.NloSpeed));
+            _guardianModel = new Guardian(_nloModel, GetRandomPositionOutsideScreen(), Config.GuardianSpeed);
+            _nloModel = new Nlo(_guardianModel, GetRandomPositionOutsideScreen(), Config.NloSpeed);
+            _factory.CreateNlo(_nloModel);
+            _factory.CreateGuardian(_guardianModel);
+            
         }
         else
         {
@@ -45,5 +52,10 @@ public class SpawnExample : MonoBehaviour
     private static Vector2 GetDirectionThroughtScreen(Vector2 postion)
     {
         return (new Vector2(Random.value, Random.value) - postion).normalized;
+    }
+    
+    private static Vector2 GetRandomPositionInsideScreen(float x, float y)
+    {
+        return (new Vector2(x, y));
     }
 }
